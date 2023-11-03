@@ -6,6 +6,10 @@ import {
     TextField,
     Checkbox,
     FormGroup,
+    Select,
+    MenuItem,
+    InputLabel,
+    Box ,
     FormControlLabel,
     RadioGroup,
     Radio,
@@ -30,97 +34,53 @@ const Forms = () => {
     return (
       <Grid container spacing={3}>
         <Grid item xs={12} lg={12}>
-          <BaseCard title="Form Layout">
+          <BaseCard title="Registro de  Venta">
             <>
             <Stack spacing={3}>
               <TextField
                 id="name-basic"
-                label="Name"
-                variant="outlined"
-                defaultValue="Nirav Joshi"
-              />
-              <TextField id="email-basic" label="Email" variant="outlined" />
-              <TextField
-                id="pass-basic"
-                label="Password"
-                type="password"
+                label="Cliente"
                 variant="outlined"
               />
-              <TextField
-                id="outlined-multiline-static"
-                label="Text Area"
-                multiline
-                rows={4}
-                defaultValue="Default Value"
-              />
-              <TextField
-                error
-                id="er-basic"
-                label="Error"
-                defaultValue="ad1avi"
-                variant="outlined"
-              />
-              <FormGroup>
-                <FormControlLabel
-                  control={<Checkbox defaultChecked />}
-                  label="Terms & Condition"
-                />
-                <FormControlLabel
-                  disabled
-                  control={<Checkbox />}
-                  label="Disabled"
-                />
-              </FormGroup>
+              <TextField type='number' label="Precio Unitario"/>
+
+              <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Select Producto</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Select Producto"
+                  >
+                    <MenuItem value={10}>Television</MenuItem>
+                    <MenuItem value={20}>Lavadora</MenuItem>
+                    <MenuItem value={30}>Refrigeradora</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>              
               <FormControl>
-                <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+                <FormLabel id="demo-radio-buttons-group-label">Plazo de Pagos</FormLabel>
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="female"
-                  name="radio-buttons-group"
-                >
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                  <FormControlLabel
-                    value="other"
-                    control={<Radio />}
-                    label="Other"
-                  />
+                  name="radio-buttons-group">
+                  <FormControlLabel value="female" control={<Radio />} label="3" />
+                  <FormControlLabel value="male" control={<Radio />} label="6" />
+                  <FormControlLabel value="other" control={<Radio />} label="12" />
                 </RadioGroup>
-              </FormControl>
+                </FormControl>
+              <TextField type='date' label="Fecha de expiración"  focused  />
+
+             
             </Stack>
             <br />
-            <Button>
-              Submit
-            </Button>
+            <Button variant="contained">Registrar</Button>
+
             </>
           </BaseCard>
         </Grid>
   
-        <Grid item xs={12} lg={12}>
-          <BaseCard title="Form Design Type">
-            <Stack spacing={3} direction="row">
-              <TextField
-                id="outlined-basic"
-                label="Outlined"
-                variant="outlined"
-              />
-              <TextField id="filled-basic" label="Filled" variant="filled" />
-              <TextField
-                id="standard-basic"
-                label="Standard"
-                variant="standard"
-              />
-            </Stack>
-          </BaseCard>
-        </Grid>
+        
       </Grid>
     );
   };
